@@ -12,7 +12,7 @@ import argparse
 import datetime
 
 from models import *
-from utils import progress_bar
+# from utils import progress_bar
 import json
 
 
@@ -188,8 +188,8 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-            progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                         % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+            #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     # Save checkpoint.
     valid_acc.append(correct/total)
