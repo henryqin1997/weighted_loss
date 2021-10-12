@@ -39,7 +39,7 @@ parser.add_argument('--div-factor',default=25,type=float)
 parser.add_argument('--final-div',default=10000,type=float)
 parser.add_argument('--num-epoch',default=150,type=int)
 parser.add_argument('--pct-start',default=0.3,type=float)
-parser.add_argument('weighted-loss',default=2,type=int)
+parser.add_argument('--weighted-loss',default=2,type=int)
 
 args = parser.parse_args()
 
