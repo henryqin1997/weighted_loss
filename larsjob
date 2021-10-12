@@ -19,5 +19,5 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun \
 python3 -u onecycle_cifar_res_weighted.py \
---optimizer lars --max-lr 2.3 \
+--optimizer lars --max-lr 2.3 --weighted-loss 2 \
 > ${SLURM_JOBID}.out 2> ${SLURM_JOBID}.err

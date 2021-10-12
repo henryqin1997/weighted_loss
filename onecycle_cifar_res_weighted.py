@@ -39,6 +39,7 @@ parser.add_argument('--div-factor',default=25,type=float)
 parser.add_argument('--final-div',default=10000,type=float)
 parser.add_argument('--num-epoch',default=150,type=int)
 parser.add_argument('--pct-start',default=0.3,type=float)
+parser.add_argument('weighted-loss',default=2,type=int)
 
 args = parser.parse_args()
 
@@ -147,6 +148,12 @@ def myweightedloss3(y_hat, y_true):
     loss = unaveraged_loss.square()
     return torch.mean(loss) / max(torch.mean(unaveraged_loss),1)
 
+if args.weighted_loss==1:
+    weightedloss = myweightedloss
+elif args.weighted_loss==2:
+    weightedloss = myweightedloss2
+else:
+    weightedloss = myweightedloss3
 
 # Training
 def train(epoch):
@@ -159,7 +166,7 @@ def train(epoch):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
-        loss = myweightedloss(outputs, targets)
+        loss = weightedloss(outputs, targets)
         loss.backward()
         optimizer.step()
         lr_scheduler.step()
