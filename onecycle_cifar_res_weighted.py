@@ -128,8 +128,11 @@ else:
 # lrs = create_lr_scheduler(args.warmup_epochs, args.lr_decay)
 # lr_scheduler = LambdaLR(optimizer,lrs)
 # lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, args.lr_decay, gamma=0.1)
-lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer,args.max_lr,steps_per_epoch=len(trainloader),
-                                                   epochs=args.num_epoch,div_factor=args.div_factor,final_div_factor=args.final_div,pct_start=args.pct_start)
+# lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer,args.max_lr,steps_per_epoch=len(trainloader),
+#                                                    epochs=args.num_epoch,div_factor=args.div_factor,final_div_factor=args.final_div,pct_start=args.pct_start)
+
+lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones = [100, 120])
+
 train_acc = []
 valid_acc = []
 
