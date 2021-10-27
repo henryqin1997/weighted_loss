@@ -12,7 +12,7 @@ import argparse
 import datetime
 
 from models import *
-from utils import progress_bar
+# from utils import progress_bar
 import json
 
 
@@ -186,8 +186,8 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
         if batch_idx % batch_acumulate == batch_acumulate - 1 or batch_idx == len(trainloader) - 1:
-            progress_bar(batch_idx//batch_acumulate if batch_idx!=len(trainloader) - 1 else batch_per_step, batch_per_step, 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                     % (train_loss / (count), 100. * correct / total, correct, total))
+            # progress_bar(batch_idx//batch_acumulate if batch_idx!=len(trainloader) - 1 else batch_per_step, batch_per_step, 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+            #          % (train_loss / (count), 100. * correct / total, correct, total))
             train_loss, count = 0, 0
     train_acc.append(correct/total)
 
@@ -208,8 +208,8 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-            progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                         % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+            #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     # Save checkpoint.
     valid_acc.append(correct/total)
