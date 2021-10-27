@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name="weighter_loss_lar"
+#SBATCH --job-name="weighted_loss_lar"
 #SBATCH --account="s1054"
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zihengq@comp.nus.edu.sg
