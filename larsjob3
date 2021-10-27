@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name="weighted_loss_lar"
+#SBATCH --job-name="weighter_loss_lar3_pct0.5"
 #SBATCH --account="s1054"
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zihengq@comp.nus.edu.sg
@@ -18,6 +18,6 @@ module load PyTorch
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun \
-python3 -u onecycle_lb_cifar10_resnet50.py \
---optimizer lamb --max-lr 0.02 --weighted-loss 0 \
+python3 -u onecycle_cifar_res_weighted.py --pct-start 0.5 \
+--optimizer lars --max-lr 2.3 --weighted-loss 1 \
 > ${SLURM_JOBID}.out 2> ${SLURM_JOBID}.err

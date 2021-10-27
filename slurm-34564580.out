@@ -1,0 +1,31 @@
+Switching to atp/3.8.1.
+Switching to cray-libsci/20.09.1.
+Switching to cray-mpich/7.7.16.
+Switching to craype/2.7.3.
+Switching to gcc/9.3.0.
+Switching to modules/3.2.11.4.
+Switching to perftools-base/20.10.0.
+Switching to pmi/5.0.17.
+
+
+Batch Job Summary Report (version 21.01.1) for Job "weighter_loss_lar" (34564580) on daint
+
+Job information (1/3)
+-----------------------------------------------------------------------------------------------------
+             Submit            Eligible               Start                 End    Elapsed Time limit
+------------------- ------------------- ------------------- ------------------- ---------- ----------
+2021-10-27T05:04:43 2021-10-27T05:04:43 2021-10-27T05:07:09 2021-10-27T09:23:08   04:15:59   10:00:00
+-----------------------------------------------------------------------------------------------------
+
+Job information (2/3)
+-------------------------------------------------------------
+    Username      Account    Partition   NNodes        Energy
+------------ ------------ ------------ -------- -------------
+        zqin        s1054       normal        1   3521.069 kJ
+
+Job information (3/3) - GPU utilization data
+----------------------------------------------------
+   Node name       Usage      Max mem Execution time
+------------ ----------- ------------ --------------
+    nid02241        80 %     9863 MiB       04:15:44
+

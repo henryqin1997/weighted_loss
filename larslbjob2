@@ -19,5 +19,5 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun \
 python3 -u onecycle_lb_cifar10_resnet50.py \
---optimizer lamb --max-lr 0.02 --weighted-loss 0 \
+--optimizer sgd --max-lr 0.001 --weighted-loss 1 \
 > ${SLURM_JOBID}.out 2> ${SLURM_JOBID}.err
