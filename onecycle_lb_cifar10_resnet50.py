@@ -217,7 +217,10 @@ def test(epoch):
 for epoch in range(args.num_epoch):
     train(epoch)
     test(epoch)
-fn = '{}{}-{}-epoch{}-batchsize{}-pct{}-{}_onecycle_log.json'.format(args.optimizer,str(args.max_lr/args.div_factor),
-                            str(args.max_lr),args.num_epoch,args.batch_size,args.pct_start,datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+fn = '{}{}-{}-epoch{}-batchsize{}-pct{}-{}-loss{}_onecycle_log.json'.format(
+                                args.optimizer,str(args.max_lr/args.div_factor),
+                                str(args.max_lr),args.num_epoch,args.batch_size,args.pct_start,
+                                datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),args.weighted_loss
+                            )
 file = open(fn,'w+')
 json.dump([train_acc,valid_acc],file)
